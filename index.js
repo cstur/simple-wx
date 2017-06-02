@@ -1,7 +1,7 @@
 'use strict';
 require('babel-polyfill');
 
-const checkSignature = require('./src/checksignature').default;
+const checkSignature = require('./lib/checksignature').default;
 
 module.exports = {
 	checkSignature : checkSignature.checkSignature,
