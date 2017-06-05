@@ -1,7 +1,7 @@
 import crypto from 'crypto';
 import WXBizMsgCrypt from 'wechat-crypto';
 
-export function checkSignature(signature, timestamp, nonce, token){
+function checkSignature(signature, timestamp, nonce, token){
   let arr = [token, timestamp, nonce].sort();
   let shasum = crypto.createHash("sha1");
   shasum.update(arr.join(''));
@@ -9,7 +9,7 @@ export function checkSignature(signature, timestamp, nonce, token){
   return false;
 }
 
-export function checkSignatureCrypt(signature, timestamp, nonce, token, encodingAESKey, appid, echostr){
+function checkSignatureCrypt(signature, timestamp, nonce, token, encodingAESKey, appid, echostr){
   let cryptor = new WXBizMsgCrypt(token, encodingAESKey, appid);
   if (signature === cryptor.getSignature(timestamp, nonce, echostr)) {
   	return true;
