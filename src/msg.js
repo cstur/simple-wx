@@ -7,7 +7,7 @@ function parseXML (xml) {
       if (err) {
         return reject(err);
       }
-      resolve(obj);
+      resolve(obj.xml);
     });
   });
 }
