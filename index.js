@@ -7,5 +7,6 @@ const msg = require('./lib/msg').default;
 module.exports = {
 	checkSignature : checkSignature.checkSignature,
 	checkSignatureCrypt : checkSignature.checkSignatureCrypt,
-	parseXML: msg.parseXML
+	parseXML: msg.parseXML,
+	replyText: msg.replyText
 }

@@ -1,5 +1,5 @@
 import xml2js from 'xml2js';
-import ejs from 'ejs';
+import xml from 'xml';
 
 function parseXML (xml) {
   return new Promise((resolve, reject) => {
@@ -12,6 +12,19 @@ function parseXML (xml) {
   });
 }
 
+function replyText(ToUserName, FromUserName, Content){
+	return xml({
+		xml:[
+			{ToUserName:ToUserName},
+			{FromUserName:FromUserName},
+			{CreateTime:new Date().getTime()},
+			{MsgType:'text'},
+			{Content:Content}
+		]
+	});
+}
+
 export default {
-	parseXML
+	parseXML,
+	replyText
 }
