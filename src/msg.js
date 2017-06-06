@@ -15,11 +15,11 @@ function parseXML (xml) {
 function replyText(ToUserName, FromUserName, Content){
 	return xml({
 		xml:[
-			{ToUserName:ToUserName},
-			{FromUserName:FromUserName},
+			{ToUserName:{_cdata:ToUserName}},
+			{FromUserName:{_cdata:FromUserName}},
 			{CreateTime:new Date().getTime()},
-			{MsgType:'text'},
-			{Content:Content}
+			{MsgType:{_cdata:'text'}},
+			{Content:{_cdata:Content}}
 		]
 	});
 }
